@@ -1,0 +1,40 @@
+﻿@model IEnumerable<RecipeCalculator.Models.RecipeViewModel>
+ <fieldset>
+        <legend>Recipe Calculator</legend>
+<div>
+    <div class="row">
+        @foreach (var recipe in @Model)
+        {
+            <div class="col-lg-3" style="display:inline-block; vertical-align:text-top">
+                <h2 class="alert-link"><a class="recipe-name" id="@recipe.RecipeName">@recipe.RecipeName</a></h2>
+                    <div class="details no-display">
+                    @foreach (var item in recipe.Ingredients)
+                    {
+                        <div>@item</div> 
+                    }
+                    <div>Tax:      <span  class='money'>@recipe.Tax</span></div>
+                    <div>Discount: <span  class='money'>@recipe.Discount</span></div>
+                    <div>Total:    <span  class='money'>@recipe.Total</span></div>
+                </div>
+            </div>
+            <div class="col-lg-1"></div> 
+        }
+    </div>
+</div>
+ </fieldset>
+@section MyScripts
+{
+    <script>
+        $(document).ready(function () {
+            $('.money').each(function () {
+                $(this).text(formatCurrency(parseFloat($(this).text())));
+            });
+        });
+        $("h2 a").hover(function () {
+            $('.details').each(function () {
+                $(this).addClass('no-display');
+            });
+            $(this).parent().next('.details').removeClass('no-display');
+        });
+    </script>
+}

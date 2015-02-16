@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RecipeModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="RecipeModelStoreContainer">
+          <EntitySet Name="Category" EntityType="RecipeModel.Store.Category" store:Type="Tables" />
+          <EntitySet Name="Item" EntityType="RecipeModel.Store.Item" store:Type="Tables" />
+          <EntitySet Name="Price" EntityType="RecipeModel.Store.Price" store:Type="Tables" />
+          <EntitySet Name="Recipe" EntityType="RecipeModel.Store.Recipe" store:Type="Tables" />
+          <EntitySet Name="RecipeItem" EntityType="RecipeModel.Store.RecipeItem" store:Type="Tables" />
+          <EntitySet Name="Unit" EntityType="RecipeModel.Store.Unit" store:Type="Tables" />
+          <AssociationSet Name="Category_Id_Item_CategoryId" Association="RecipeModel.Store.Category_Id_Item_CategoryId">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="Item_Id_Price_ItemId" Association="RecipeModel.Store.Item_Id_Price_ItemId">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="Price" EntitySet="Price" />
+          </AssociationSet>
+          <AssociationSet Name="Item_Id_RecipeItem_ItemId" Association="RecipeModel.Store.Item_Id_RecipeItem_ItemId">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="RecipeItem" EntitySet="RecipeItem" />
+          </AssociationSet>
+          <AssociationSet Name="Recipe_Id_RecipeItem_RecipeId" Association="RecipeModel.Store.Recipe_Id_RecipeItem_RecipeId">
+            <End Role="Recipe" EntitySet="Recipe" />
+            <End Role="RecipeItem" EntitySet="RecipeItem" />
+          </AssociationSet>
+          <AssociationSet Name="Unit_Id_Price_UnitId" Association="RecipeModel.Store.Unit_Id_Price_UnitId">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="Price" EntitySet="Price" />
+          </AssociationSet>
+          <AssociationSet Name="Unit_Id_RecipeItem_UnitId" Association="RecipeModel.Store.Unit_Id_RecipeItem_UnitId">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="RecipeItem" EntitySet="RecipeItem" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Organic" Type="bit" Nullable="false" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Price">
+          <Key>
+            <PropertyRef Name="ItemId" />
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Name="ItemId" Type="int" Nullable="false" />
+          <Property Name="UnitId" Type="int" Nullable="false" />
+          <Property Name="Price" Type="money" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Recipe">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RecipeItem">
+          <Key>
+            <PropertyRef Name="RecipeId" />
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="RecipeId" Type="int" Nullable="false" />
+          <Property Name="ItemId" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="float" Nullable="false" />
+          <Property Name="UnitId" Type="int" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="Category_Id_Item_CategoryId">
+          <End Role="Category" Type="RecipeModel.Store.Category" Multiplicity="0..1" />
+          <End Role="Item" Type="RecipeModel.Store.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Item_Id_Price_ItemId">
+          <End Role="Item" Type="RecipeModel.Store.Item" Multiplicity="1" />
+          <End Role="Price" Type="RecipeModel.Store.Price" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Price">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Item_Id_RecipeItem_ItemId">
+          <End Role="Item" Type="RecipeModel.Store.Item" Multiplicity="1" />
+          <End Role="RecipeItem" Type="RecipeModel.Store.RecipeItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RecipeItem">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Recipe_Id_RecipeItem_RecipeId">
+          <End Role="Recipe" Type="RecipeModel.Store.Recipe" Multiplicity="1" />
+          <End Role="RecipeItem" Type="RecipeModel.Store.RecipeItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RecipeItem">
+              <PropertyRef Name="RecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Unit_Id_Price_UnitId">
+          <End Role="Unit" Type="RecipeModel.Store.Unit" Multiplicity="1" />
+          <End Role="Price" Type="RecipeModel.Store.Price" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Price">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Unit_Id_RecipeItem_UnitId">
+          <End Role="Unit" Type="RecipeModel.Store.Unit" Multiplicity="0..1" />
+          <End Role="RecipeItem" Type="RecipeModel.Store.RecipeItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RecipeItem">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RecipeModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="RecipeContext" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="RecipeModel.Category" />
+          <EntitySet Name="Items" EntityType="RecipeModel.Item" />
+          <EntitySet Name="Recipes" EntityType="RecipeModel.Recipe" />
+          <EntitySet Name="RecipeItems" EntityType="RecipeModel.RecipeItem" />
+          <EntitySet Name="Units" EntityType="RecipeModel.Unit" />
+          <AssociationSet Name="Category_Id_Item_CategoryId" Association="RecipeModel.Category_Id_Item_CategoryId">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Item" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="Item_Id_RecipeItem_ItemId" Association="RecipeModel.Item_Id_RecipeItem_ItemId">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="RecipeItem" EntitySet="RecipeItems" />
+          </AssociationSet>
+          <AssociationSet Name="Recipe_Id_RecipeItem_RecipeId" Association="RecipeModel.Recipe_Id_RecipeItem_RecipeId">
+            <End Role="Recipe" EntitySet="Recipes" />
+            <End Role="RecipeItem" EntitySet="RecipeItems" />
+          </AssociationSet>
+          <AssociationSet Name="Unit_Id_RecipeItem_UnitId" Association="RecipeModel.Unit_Id_RecipeItem_UnitId">
+            <End Role="Unit" EntitySet="Units" />
+            <End Role="RecipeItem" EntitySet="RecipeItems" />
+          </AssociationSet>
+          <EntitySet Name="Prices" EntityType="RecipeModel.Price" />
+          <AssociationSet Name="Item_Id_Price_ItemId" Association="RecipeModel.Item_Id_Price_ItemId">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="Price" EntitySet="Prices" />
+          </AssociationSet>
+          <AssociationSet Name="Unit_Id_Price_UnitId" Association="RecipeModel.Unit_Id_Price_UnitId">
+            <End Role="Unit" EntitySet="Units" />
+            <End Role="Price" EntitySet="Prices" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Items" Relationship="RecipeModel.Category_Id_Item_CategoryId" FromRole="Category" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Organic" Type="Boolean" Nullable="false" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="RecipeModel.Category_Id_Item_CategoryId" FromRole="Item" ToRole="Category" />
+          <NavigationProperty Name="RecipeItems" Relationship="RecipeModel.Item_Id_RecipeItem_ItemId" FromRole="Item" ToRole="RecipeItem" />
+          <NavigationProperty Name="Prices" Relationship="RecipeModel.Item_Id_Price_ItemId" FromRole="Item" ToRole="Price" />
+        </EntityType>
+        <EntityType Name="Recipe">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="RecipeItems" Relationship="RecipeModel.Recipe_Id_RecipeItem_RecipeId" FromRole="Recipe" ToRole="RecipeItem" />
+        </EntityType>
+        <EntityType Name="RecipeItem">
+          <Key>
+            <PropertyRef Name="RecipeId" />
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="RecipeId" Type="Int32" Nullable="false" />
+          <Property Name="ItemId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Double" Nullable="false" />
+          <Property Name="UnitId" Type="Int32" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="RecipeModel.Item_Id_RecipeItem_ItemId" FromRole="RecipeItem" ToRole="Item" />
+          <NavigationProperty Name="Recipe" Relationship="RecipeModel.Recipe_Id_RecipeItem_RecipeId" FromRole="RecipeItem" ToRole="Recipe" />
+          <NavigationProperty Name="Unit" Relationship="RecipeModel.Unit_Id_RecipeItem_UnitId" FromRole="RecipeItem" ToRole="Unit" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="RecipeItems" Relationship="RecipeModel.Unit_Id_RecipeItem_UnitId" FromRole="Unit" ToRole="RecipeItem" />
+          <NavigationProperty Name="Prices" Relationship="RecipeModel.Unit_Id_Price_UnitId" FromRole="Unit" ToRole="Price" />
+        </EntityType>
+        <Association Name="Category_Id_Item_CategoryId">
+          <End Role="Category" Type="RecipeModel.Category" Multiplicity="0..1" />
+          <End Role="Item" Type="RecipeModel.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Item_Id_RecipeItem_ItemId">
+          <End Role="Item" Type="RecipeModel.Item" Multiplicity="1" />
+          <End Role="RecipeItem" Type="RecipeModel.RecipeItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RecipeItem">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Recipe_Id_RecipeItem_RecipeId">
+          <End Role="Recipe" Type="RecipeModel.Recipe" Multiplicity="1" />
+          <End Role="RecipeItem" Type="RecipeModel.RecipeItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RecipeItem">
+              <PropertyRef Name="RecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Unit_Id_RecipeItem_UnitId">
+          <End Role="Unit" Type="RecipeModel.Unit" Multiplicity="0..1" />
+          <End Role="RecipeItem" Type="RecipeModel.RecipeItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RecipeItem">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Price">
+          <Key>
+            <PropertyRef Name="ItemId" />
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Type="Int32" Name="ItemId" Nullable="false" />
+          <Property Type="Int32" Name="UnitId" Nullable="false" />
+          <Property Type="Decimal" Name="Price1" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Boolean" Name="Active" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="RecipeModel.Item_Id_Price_ItemId" FromRole="Price" ToRole="Item" />
+          <NavigationProperty Name="Unit" Relationship="RecipeModel.Unit_Id_Price_UnitId" FromRole="Price" ToRole="Unit" />
+        </EntityType>
+        <Association Name="Item_Id_Price_ItemId">
+          <End Type="RecipeModel.Item" Role="Item" Multiplicity="1" />
+          <End Type="RecipeModel.Price" Role="Price" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Price">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Unit_Id_Price_UnitId">
+          <End Type="RecipeModel.Unit" Role="Unit" Multiplicity="1" />
+          <End Type="RecipeModel.Price" Role="Price" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Price">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RecipeModelStoreContainer" CdmEntityContainer="RecipeContext">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="RecipeModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="RecipeModel.Item">
+              <MappingFragment StoreEntitySet="Item">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Organic" ColumnName="Organic" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recipes">
+            <EntityTypeMapping TypeName="RecipeModel.Recipe">
+              <MappingFragment StoreEntitySet="Recipe">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecipeItems">
+            <EntityTypeMapping TypeName="RecipeModel.RecipeItem">
+              <MappingFragment StoreEntitySet="RecipeItem">
+                <ScalarProperty Name="RecipeId" ColumnName="RecipeId" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Units">
+            <EntityTypeMapping TypeName="RecipeModel.Unit">
+              <MappingFragment StoreEntitySet="Unit">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prices">
+            <EntityTypeMapping TypeName="RecipeModel.Price">
+              <MappingFragment StoreEntitySet="Price">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Price1" ColumnName="Price" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

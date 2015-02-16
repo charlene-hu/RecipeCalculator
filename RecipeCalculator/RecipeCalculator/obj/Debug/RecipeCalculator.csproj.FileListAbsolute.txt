@@ -1,0 +1,55 @@
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator\bin\RecipeCalculator.dll
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator\bin\RecipeCalculator.pdb
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator\bin\Antlr3.Runtime.dll
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator\bin\EntityFramework.dll
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator\bin\Newtonsoft.Json.dll
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator\bin\System.Web.Helpers.dll
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator\bin\System.Web.Mvc.dll
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator\bin\System.Web.Optimization.dll
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator\bin\System.Web.Razor.dll
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator\bin\System.Web.WebPages.dll
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator\bin\System.Web.WebPages.Razor.dll
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator\bin\WebGrease.dll
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator\bin\EntityFramework.xml
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator\bin\Newtonsoft.Json.xml
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator\bin\System.Web.Helpers.xml
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator\bin\System.Web.Mvc.xml
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator\bin\System.Web.Razor.xml
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator\bin\System.Web.WebPages.xml
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator\bin\System.Web.WebPages.Razor.xml
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator\obj\Debug\RecipeCalculator.dll
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator\obj\Debug\RecipeCalculator.pdb
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator\bin\log4net.dll
+C:\Users\Charlene\Documents\Visual Studio 2012\Projects\RecipeCalculator\RecipeCalculator\bin\log4net.xml
+D:\RecipeCalculator\RecipeCalculator\bin\RecipeCalculator.dll
+D:\RecipeCalculator\RecipeCalculator\bin\RecipeCalculator.pdb
+D:\RecipeCalculator\RecipeCalculator\bin\Antlr3.Runtime.dll
+D:\RecipeCalculator\RecipeCalculator\bin\EntityFramework.dll
+D:\RecipeCalculator\RecipeCalculator\bin\log4net.dll
+D:\RecipeCalculator\RecipeCalculator\bin\Microsoft.Web.Infrastructure.dll
+D:\RecipeCalculator\RecipeCalculator\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\RecipeCalculator\RecipeCalculator\bin\Newtonsoft.Json.dll
+D:\RecipeCalculator\RecipeCalculator\bin\System.Web.Helpers.dll
+D:\RecipeCalculator\RecipeCalculator\bin\System.Web.Mvc.dll
+D:\RecipeCalculator\RecipeCalculator\bin\System.Web.Optimization.dll
+D:\RecipeCalculator\RecipeCalculator\bin\System.Web.Razor.dll
+D:\RecipeCalculator\RecipeCalculator\bin\System.Web.WebPages.Deployment.dll
+D:\RecipeCalculator\RecipeCalculator\bin\System.Web.WebPages.dll
+D:\RecipeCalculator\RecipeCalculator\bin\System.Web.WebPages.Razor.dll
+D:\RecipeCalculator\RecipeCalculator\bin\WebGrease.dll
+D:\RecipeCalculator\RecipeCalculator\bin\EntityFramework.xml
+D:\RecipeCalculator\RecipeCalculator\bin\log4net.xml
+D:\RecipeCalculator\RecipeCalculator\bin\Newtonsoft.Json.xml
+D:\RecipeCalculator\RecipeCalculator\bin\System.Web.Helpers.xml
+D:\RecipeCalculator\RecipeCalculator\bin\System.Web.Mvc.xml
+D:\RecipeCalculator\RecipeCalculator\bin\System.Web.Razor.xml
+D:\RecipeCalculator\RecipeCalculator\bin\System.Web.WebPages.xml
+D:\RecipeCalculator\RecipeCalculator\bin\System.Web.WebPages.Deployment.xml
+D:\RecipeCalculator\RecipeCalculator\bin\System.Web.WebPages.Razor.xml
+D:\RecipeCalculator\RecipeCalculator\obj\Debug\RecipeCalculator.csprojResolveAssemblyReference.cache
+D:\RecipeCalculator\RecipeCalculator\obj\Debug\RecipeCalculator.dll
+D:\RecipeCalculator\RecipeCalculator\obj\Debug\RecipeCalculator.pdb

@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RecipeModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="RecipeModelStoreContainer">
+    <EntitySet Name="Category" EntityType="RecipeModel.Store.Category" store:Type="Tables" />
+    <EntitySet Name="Item" EntityType="RecipeModel.Store.Item" store:Type="Tables" />
+    <EntitySet Name="Price" EntityType="RecipeModel.Store.Price" store:Type="Tables" />
+    <EntitySet Name="Recipe" EntityType="RecipeModel.Store.Recipe" store:Type="Tables" />
+    <EntitySet Name="RecipeItem" EntityType="RecipeModel.Store.RecipeItem" store:Type="Tables" />
+    <EntitySet Name="Unit" EntityType="RecipeModel.Store.Unit" store:Type="Tables" />
+    <AssociationSet Name="Category_Id_Item_CategoryId" Association="RecipeModel.Store.Category_Id_Item_CategoryId">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Item" EntitySet="Item" />
+    </AssociationSet>
+    <AssociationSet Name="Item_Id_Price_ItemId" Association="RecipeModel.Store.Item_Id_Price_ItemId">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="Price" EntitySet="Price" />
+    </AssociationSet>
+    <AssociationSet Name="Item_Id_RecipeItem_ItemId" Association="RecipeModel.Store.Item_Id_RecipeItem_ItemId">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="RecipeItem" EntitySet="RecipeItem" />
+    </AssociationSet>
+    <AssociationSet Name="Recipe_Id_RecipeItem_RecipeId" Association="RecipeModel.Store.Recipe_Id_RecipeItem_RecipeId">
+      <End Role="Recipe" EntitySet="Recipe" />
+      <End Role="RecipeItem" EntitySet="RecipeItem" />
+    </AssociationSet>
+    <AssociationSet Name="Unit_Id_Price_UnitId" Association="RecipeModel.Store.Unit_Id_Price_UnitId">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="Price" EntitySet="Price" />
+    </AssociationSet>
+    <AssociationSet Name="Unit_Id_RecipeItem_UnitId" Association="RecipeModel.Store.Unit_Id_RecipeItem_UnitId">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="RecipeItem" EntitySet="RecipeItem" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Organic" Type="bit" Nullable="false" />
+    <Property Name="CategoryId" Type="int" />
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Price">
+    <Key>
+      <PropertyRef Name="ItemId" />
+      <PropertyRef Name="UnitId" />
+    </Key>
+    <Property Name="ItemId" Type="int" Nullable="false" />
+    <Property Name="UnitId" Type="int" Nullable="false" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Recipe">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RecipeItem">
+    <Key>
+      <PropertyRef Name="RecipeId" />
+      <PropertyRef Name="ItemId" />
+    </Key>
+    <Property Name="RecipeId" Type="int" Nullable="false" />
+    <Property Name="ItemId" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="float" Nullable="false" />
+    <Property Name="UnitId" Type="int" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="Category_Id_Item_CategoryId">
+    <End Role="Category" Type="RecipeModel.Store.Category" Multiplicity="0..1" />
+    <End Role="Item" Type="RecipeModel.Store.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Item_Id_Price_ItemId">
+    <End Role="Item" Type="RecipeModel.Store.Item" Multiplicity="1" />
+    <End Role="Price" Type="RecipeModel.Store.Price" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Price">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Item_Id_RecipeItem_ItemId">
+    <End Role="Item" Type="RecipeModel.Store.Item" Multiplicity="1" />
+    <End Role="RecipeItem" Type="RecipeModel.Store.RecipeItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RecipeItem">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Recipe_Id_RecipeItem_RecipeId">
+    <End Role="Recipe" Type="RecipeModel.Store.Recipe" Multiplicity="1" />
+    <End Role="RecipeItem" Type="RecipeModel.Store.RecipeItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recipe">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RecipeItem">
+        <PropertyRef Name="RecipeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Unit_Id_Price_UnitId">
+    <End Role="Unit" Type="RecipeModel.Store.Unit" Multiplicity="1" />
+    <End Role="Price" Type="RecipeModel.Store.Price" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Price">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Unit_Id_RecipeItem_UnitId">
+    <End Role="Unit" Type="RecipeModel.Store.Unit" Multiplicity="0..1" />
+    <End Role="RecipeItem" Type="RecipeModel.Store.RecipeItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RecipeItem">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

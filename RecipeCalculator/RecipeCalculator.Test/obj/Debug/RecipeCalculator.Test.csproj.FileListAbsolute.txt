@@ -1,0 +1,17 @@
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator.Test\obj\Debug\RecipeCalculator.Test.csprojResolveAssemblyReference.cache
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator.Test\bin\Debug\RecipeCalculator.Test.dll.config
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator.Test\bin\Debug\RecipeCalculator.Test.dll
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator.Test\bin\Debug\RecipeCalculator.Test.pdb
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator.Test\bin\Debug\nunit.framework.dll
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator.Test\bin\Debug\RecipeCalculator.dll
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator.Test\bin\Debug\System.Web.Mvc.dll
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator.Test\bin\Debug\EntityFramework.dll
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator.Test\bin\Debug\System.Web.Optimization.dll
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator.Test\bin\Debug\RecipeCalculator.pdb
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator.Test\bin\Debug\nunit.framework.xml
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator.Test\bin\Debug\System.Web.Mvc.xml
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator.Test\bin\Debug\EntityFramework.xml
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator.Test\obj\Debug\RecipeCalculator.Test.dll
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator.Test\obj\Debug\RecipeCalculator.Test.pdb
+C:\Users\Charlene\documents\visual studio 2012\Projects\RecipeCalculator\RecipeCalculator.Test\bin\Debug\log4net.dll
+C:\Users\Charlene\Documents\Visual Studio 2012\Projects\RecipeCalculator\RecipeCalculator.Test\bin\Debug\log4net.xml
